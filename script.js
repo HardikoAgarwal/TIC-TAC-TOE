@@ -1,107 +1,172 @@
-const cross = '<i class="fa-solid fa-xmark fa-beat" style="--fa-animation-duration: 0.5s; --fa-animation-iteration-count: 1;"></i>';
-const circle = '<i class="fa-solid fa-o fa-beat" style="--fa-animation-duration: 0.5s; --fa-animation-iteration-count: 1;"></i>';
-let count = 1;
-let Player = 1;
-let score_1 = 0;
-let score_2 = 0;
-let Start = "False";
-let CheckMove = ["", "", "", "", "", "", "", "", ""];
-let R_Count = 1;
-var P1_Value;
-var P2_Value;
-let swap_count = 1;
+const cross =
+    '<i class="fa-solid fa-xmark fa-beat" style="--fa-animation-duration: 0.5s; --fa-animation-iteration-count: 1;"></i>';
+const circle =
+    '<i class="fa-solid fa-o fa-beat" style="--fa-animation-duration: 0.5s; --fa-animation-iteration-count: 1;"></i>';
+let Move_Count;
+let Player_Count;
+let Score_1;
+let Score_2;
+let Start;
+let R_Count;
+var P1_Name;
+var P2_Name;
+let Swap;
+let CheckMove_3 = ["", "", "", "", "", "", "", "", ""];
+let CheckMove_4 = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""];
+let Grids;
+
+let msg = document.getElementById("msg");
+let roundClickDiv = document.querySelector(".round");
+let h2 = roundClickDiv.querySelector("h2");
+let h3 = roundClickDiv.querySelector("h3");
+let p = roundClickDiv.querySelector("p");
+
+function mode(choice) {
+    Grids = choice;
+    document.getElementById("start_box").style.top = "-100vh";
+    document.getElementById("game_box").style.top = "0";
+    board();
+    P1_Name = document.getElementById("P1_Name").value || "Player 1";
+    P2_Name = document.getElementById("P2_Name").value || "Player 2";
+    updateName();
+    initialValue();
+    updateScore();
+}
+
+function board() {
+    let board_box = document.getElementById("board");
+    board_box.innerHTML = "";
+
+    if (Grids == 3) {
+        board_box.classList.add("board3");
+        for (let i = 1; i <= 9; i++) {
+            board_box.innerHTML +=
+                '<div class="board-box" id="b3' +
+                i +
+                '" onclick="play(' +
+                i +
+                ')"></div>';
+        }
+    } else if (Grids == 4) {
+        board_box.classList.add("board4");
+        for (let i = 1; i <= 16; i++) {
+            board_box.innerHTML +=
+                '<div class="board-box board-box2" id="b4' +
+                i +
+                '" onclick="play(' +
+                i +
+                ')"></div>';
+        }
+    }
+}
+
+function updateName() {
+    document.getElementById("P1_name").innerHTML = P1_Name;
+    document.getElementById("P2_name").innerHTML = P2_Name;
+}
+
+function updateScore() {
+    document.getElementById("score-p1").innerHTML = Score_1;
+    document.getElementById("score-p2").innerHTML = Score_2;
+}
+
+function initialValue() {
+    Move_Count = 1;
+    Player_Count = 1;
+    Score_1 = 0;
+    Score_2 = 0;
+    Start = "False";
+    R_Count = 1;
+    Swap = 1;
+    CheckMove_3 = ["", "", "", "", "", "", "", "", ""];
+    CheckMove_4 = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""];
+    msg.innerHTML = "Press Start to Play the Game !";
+    roundClickDiv.classList.add("round-click");
+    h2.textContent = "Start";
+    h3.textContent = "";
+    p.textContent = "";
+}
 
 function start() {
-    if (Start === "False") {
-        const msg = document.getElementById("msg");
-        if (swap_count == R_Count) {
-            P1_Value = document.getElementById("P1").value || "Player 1";
-            P2_Value = document.getElementById("P2").value || "Player 2";
-        }
-        else {
-            swap_count = R_Count;
-            let temp = P1_Value;
-            P1_Value = P2_Value;
-            P2_Value = temp;
-            document.getElementById("P1").value = P1_Value;
-            document.getElementById("P2").value = P2_Value;
-            temp = score_2;
-            score_2 = score_1;
-            score_1 = temp;
-            document.getElementById("score-p1").innerHTML = score_1;
-            document.getElementById("score-p2").innerHTML = score_2;
-        }
-        Start = "True";
-        reset();
-        updateContent();
-        updateMessage(0);
+    if (R_Count > 1) {
+        document.querySelectorAll(".board-box").forEach((box) => {
+            box.innerHTML = "";
+            box.classList.remove('box-win');
+        });
+        CheckMove_3 = ["", "", "", "", "", "", "", "", ""];
+        CheckMove_4 = ["", "", "", "", "", "", "", "", "","", "", "", "", "", "", "",];
+        Player_Count = 1;
+        Move_Count = 1;
+        let temp = P1_Name;
+        P1_Name = P2_Name;
+        P2_Name = temp;
+        updateName();
     }
+    Start = "True";
+    unlockBoard();
+    updateRound();
+    updateMessage();
 }
 
-function updateMessage(Win) {
-
-    if (Win === 0) {
-        msg.innerHTML = (Player % 2 !== 0 ? P1_Value : P2_Value) + " to Move !!";
-        Player++;
-    } else if (Win === 1) {
-        msg.innerHTML = "Game is Drawn !!";
-        playAgain();
-        Player = 1;
-    } else {
-        msg.innerHTML = (Player % 2 !== 0 ? P2_Value : P1_Value) + " Wins !!";
-        updateScore(Player % 2 === 0 ? 1 : 2);
-        Player = 1;
-        updateWin(Win);
-        playAgain();
-    }
-}
-
-function updateContent() {
+function unlockBoard() {
     const boardBoxes = document.querySelectorAll(".board-box");
     boardBoxes.forEach((box) => box.classList.add("box-hover"));
+}
 
-    const roundClickDiv = document.querySelector(".round");
-    const h2 = roundClickDiv.querySelector("h2");
-    const h3 = roundClickDiv.querySelector("h3");
-    const p = roundClickDiv.querySelector("p");
+function lockBoard() {
+    Start = "False";
+    const boardBoxes = document.querySelectorAll(".board-box");
+    boardBoxes.forEach((box) => box.classList.remove("box-hover"));
+}
+
+function updateRound() {
     roundClickDiv.classList.remove("round-click");
     h2.textContent = "";
     h3.textContent = R_Count;
     p.textContent = "Round";
-
-    document.getElementById("P1").readOnly = true;
-    document.getElementById("P2").readOnly = true;
-
-    document.querySelectorAll(".fa-pen").forEach(icon => icon.style.display = "none");
 }
 
-function updateScore(winner) {
-    if (winner === 1) score_1++;
-    else score_2++;
-    document.getElementById("score-p1").innerHTML = score_1;
-    document.getElementById("score-p2").innerHTML = score_2;
+function updateMessage() {
+    msg.innerHTML = (Player_Count % 2 !== 0 ? P1_Name : P2_Name) + " to Move !!";
+    Player_Count++;
 }
 
 function play(move) {
-    if (Start === "True" && CheckMove[move - 1] === "") {
-        document.getElementById("b" + move).innerHTML = (count % 2 === 0) ? circle : cross;
-        CheckMove[move - 1] = (count % 2 === 0) ? "O" : "X";
-        count++;
-        let Win = checkWin();
-        if (Win !== 0) {
-            Start = "False";
-            count = 1;
+    if (Start === "True" && Grids == 3) {
+        let Move_box = document.getElementById("b3" + move);
+        if (CheckMove_3[move - 1] === "") {
+            Move_box.innerHTML = Move_Count % 2 === 0 ? circle : cross;
+            CheckMove_3[move - 1] = Move_Count % 2 === 0 ? "O" : "X";
+            Move_Count++;
+            updateMessage();
+            checkWin();
         }
-        if (count === 10) {
-            Start = "False";
-            Win = 1;
-            count = 1;
+    } else if (Start === "True" && Grids == 4) {
+        let Move_box = document.getElementById("b4" + move);
+        if (CheckMove_4[move - 1] === "") {
+            Move_box.innerHTML = Move_Count % 2 === 0 ? circle : cross;
+            CheckMove_4[move - 1] = Move_Count % 2 === 0 ? "O" : "X";
+            Move_Count++;
+            updateMessage();
+            checkWin();
         }
-        updateMessage(Win);
+    }
+    if(Grids == 3 && Move_Count == 10){
+        onDraw();
+    }
+    if(Grids == 4 && Move_Count == 17){
+        onDraw();
     }
 }
 
-const winningCombinations = [
+function onDraw(){
+    Start = 'False'
+    lockBoard();
+    msg.innerHTML = 'Match Drawn !!';
+    playAgain();
+}
+
+const winningCombinations_3 = [
     [0, 1, 2],
     [3, 4, 5],
     [6, 7, 8],
@@ -109,75 +174,87 @@ const winningCombinations = [
     [1, 4, 7],
     [2, 5, 8],
     [0, 4, 8],
-    [6, 4, 2]
+    [6, 4, 2],
+];
+
+const winningCombinations_4 = [
+    [0, 1, 2, 3],
+    [4, 5, 6, 7],
+    [8, 9, 10, 11],
+    [12, 13, 14, 15],
+    [0, 4, 8, 12],
+    [1, 5, 9, 13],
+    [2, 6, 10, 14],
+    [3, 7, 11, 15],
+    [0, 5, 10, 15],
+    [3, 6, 9, 12],
 ];
 
 function checkWin() {
-    for (const [a, b, c] of winningCombinations) {
-        if (CheckMove[a] && CheckMove[a] === CheckMove[b] && CheckMove[a] === CheckMove[c]) {
-            return (a + 1) * 100 + (b + 1) * 10 + (c + 1);
+    if (Grids == 3) {
+        for (const [a, b, c] of winningCombinations_3) {
+            if (
+                CheckMove_3[a] &&
+                CheckMove_3[a] === CheckMove_3[b] &&
+                CheckMove_3[a] === CheckMove_3[c]
+            ) {
+                updateWin(a + 1, b + 1, c + 1);
+                // console.log('Win' + a + b + c);
+            }
+        }
+    } else if (Grids == 4) {
+        for (const [a, b, c, d] of winningCombinations_4) {
+            if (
+                CheckMove_4[a] &&
+                CheckMove_4[a] === CheckMove_4[b] &&
+                CheckMove_4[a] === CheckMove_4[c] &&
+                CheckMove_4[a] === CheckMove_4[d]
+            ) {
+                updateWin(a + 1, b + 1, c + 1, d + 1);
+            }
         }
     }
-    return 0;
 }
 
-function updateWin(Win) {
-    var b1 = Win % 10;
-    Win = Win / 10;
-    var b2 = Math.floor(Win) % 10;
-    var b3 = Win / 10;
-    b3 = Math.floor(b3);
-    console.log(b1 + b2 + b3);
-    document.getElementById("b" + b1).classList.add("box-win");
-    document.getElementById("b" + b2).classList.add("box-win");
-    document.getElementById("b" + b3).classList.add("box-win");
+function updateWin(a, b, c, d) {
+    if (Grids == 3) {
+        document.getElementById("b3" + a).classList.add("box-win");
+        document.getElementById("b3" + b).classList.add("box-win");
+        document.getElementById("b3" + c).classList.add("box-win");
+    } else if (Grids == 4) {
+        document.getElementById("b4" + a).classList.add("box-win");
+        document.getElementById("b4" + b).classList.add("box-win");
+        document.getElementById("b4" + c).classList.add("box-win");
+        document.getElementById("b4" + d).classList.add("box-win");
+    }
+    lockBoard();
+    afterWin();
+}
+
+function afterWin() {
+    let Winner;
+    if (Player_Count % 2 != 0) {
+        Winner = P1_Name;
+        Score_1++;
+    } else {
+        Winner = P2_Name;
+        Score_2++;
+    }
+    msg.innerHTML = Winner + " Wins !!!";
+    updateScore();
+    playAgain();
 }
 
 function playAgain() {
-    const roundClickDiv = document.querySelector(".round");
-    const h2 = roundClickDiv.querySelector("h2");
-    const h3 = roundClickDiv.querySelector("h3");
-    const p = roundClickDiv.querySelector("p");
     roundClickDiv.classList.add("round-click");
     h2.textContent = "Play Again";
     h3.textContent = "";
     p.textContent = "";
-    Start = "False";
-    document.querySelectorAll(".board-box").forEach((box) => box.classList.remove("box-hover"));
     R_Count++;
 }
 
-function reset() {
-    document.querySelectorAll(".board-box").forEach((box) => {
-        box.innerHTML = "";
-        box.classList.remove("box-win");
-    });
-    CheckMove = ["", "", "", "", "", "", "", "", ""];
-}
-
-function restart() {
-    const roundClickDiv = document.querySelector(".round");
-    const h2 = roundClickDiv.querySelector("h2");
-    const h3 = roundClickDiv.querySelector("h3");
-    const p = roundClickDiv.querySelector("p");
-    roundClickDiv.classList.add("round-click");
-    h2.textContent = "Start";
-    h3.textContent = "";
-    p.textContent = "";
-    Start = "False";
-    document.querySelectorAll(".board-box").forEach((box) => box.classList.remove("box-hover"));
-    reset();
-    count = 1;
-    Player = 1;
-    score_1 = 0;
-    score_2 = 0;
-    R_Count = 1;
-    document.getElementById("P1").readOnly = false;
-    document.getElementById("P2").readOnly = false;
-    document.getElementById("P1").value = '';
-    document.getElementById("P2").value = '';
-    document.querySelectorAll(".fa-pen").forEach(icon => icon.style.display = "block");
-    document.getElementById("score-p1").innerHTML = score_1;
-    document.getElementById("score-p2").innerHTML = score_2;
-    document.getElementById("msg").innerHTML = ("Press Start to Play the Game !");
+function goBack(){
+    initialValue();
+    document.getElementById("start_box").style.top = "0";
+    document.getElementById("game_box").style.top = "100vh";
 }
