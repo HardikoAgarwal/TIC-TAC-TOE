@@ -1,0 +1,731 @@
+@media(min-height:1000px) {
+    .p-card {
+        width: 180px;
+        height: 200px;
+    }
+
+    .icon {
+        width: 100px;
+        height: 100px;
+        top: -50px;
+    }
+
+    .icon i {
+        font-size: 85px;
+    }
+
+    .board {
+        width: 600px;
+        height: 600px;
+    }
+
+    .box {
+        width: 612px;
+        height: 612px;
+    }
+
+    .board-box i {
+        font-size: 120px;
+    }
+
+    .board-box2 i {
+        font-size: 75px;
+    }
+
+    .out-box {
+        width: 750px;
+        padding: 40px;
+        gap: 20px;
+    }
+
+    .message p {
+        font-size: 24px;
+    }
+
+    .Player-name h3 {
+        font-size: 24px;
+        font-weight: 500;
+    }
+
+    .round {
+        width: 140px;
+        height: 140px;
+    }
+
+    .round h2 {
+        font-size: 32px;
+    }
+
+    .round p {
+        font-size: 24px;
+    }
+
+    .round h3 {
+        font-size: 32px;
+    }
+
+    .rst-btn {
+        font-size: 24px;
+    }
+    .start_screen {
+        height: 780px;
+        width: 600px;
+    }
+    .start_screen h1 {
+        font-size: 60px;
+    }
+    .start-img img {
+        width: 200px;
+        height: 200px;
+    }
+    .name-input h2 {
+        font-size: 21px;
+    }
+    .input-box input {
+        width: 180px;
+        font-size: 22px;
+    }
+    .input-box input::placeholder {
+        font-size: 22px;
+    }
+    .choice-opt {
+        font-size: 28px;
+    }
+}
+
+@media (max-height: 760px) {
+    .start_screen {
+        height: 620px;
+        width: 480px;
+    }
+
+    .p-card {
+        width: 135px;
+        height: 150px;
+    }
+
+    .icon {
+        width: 65px;
+        height: 65px;
+        top: -32px;
+    }
+
+    .icon i {
+        font-size: 55px;
+    }
+
+    .score h2 {
+        font-size: 35px;
+    }
+
+    .score {
+        width: 75px;
+    }
+
+    .board {
+        width: 350px;
+        height: 350px;
+    }
+
+    .box {
+        width: 362px;
+        height: 362px;
+    }
+
+    .board-box i {
+        font-size: 85px;
+    }
+
+    .board-box2 i {
+        font-size: 54px;
+    }
+}
+
+@media (max-height:700px) {
+    .start_screen {
+        height: 560px;
+        width: 440px;
+    }
+
+    .name-input h2 {
+        font-size: 15px;
+    }
+
+    .start-img img {
+        width: 165px;
+        height: 165px;
+    }
+
+    .start_screen h1 {
+        font-size: 45px;
+    }
+
+    .choice-opt {
+        padding: 5px 20px;
+        font-size: 20px;
+    }
+
+    .out-box {
+        width: 500px;
+        gap: 14px;
+        padding: 25px;
+    }
+
+    .p-card {
+        width: 125px;
+        height: 135px;
+    }
+
+    .icon {
+        width: 60px;
+        height: 60px;
+        top: -30px;
+    }
+
+    .icon i {
+        font-size: 50px;
+    }
+
+    .score h2 {
+        font-size: 30px;
+    }
+
+    .score {
+        width: 70px;
+    }
+
+    .board {
+        width: 300px;
+        height: 300px;
+    }
+
+    .box {
+        width: 312px;
+        height: 312px;
+    }
+
+    .board-box i {
+        font-size: 70px;
+    }
+
+    .board-box2 i {
+        font-size: 44px;
+    }
+
+    .score-box {
+        padding-top: 20px;
+    }
+
+    .Player-name h3 {
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .message p {
+        font-size: 16px;
+    }
+}
+
+@media(max-height: 620px) {
+    .start_screen {
+        gap: 34px;
+        height: 510px;
+        width: 420px;
+    }
+
+    .start-img {
+        margin-top: -40px;
+    }
+
+    .start-img img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .out-box {
+        width: 450px;
+    }
+    .input-box input {
+        width: 140px;
+        font-size: 14px;
+    }
+    .input-box input::placeholder {
+        font-size: 14px;
+    }
+    .name-input h2 {
+        font-size: 13px;
+    }
+    .credit {
+        width: 220px;
+        padding: 2px 8px;
+    }
+
+    .credit p {
+        font-size: 12px;
+    }
+
+    .credit span {
+        font-size: 8px;
+    }
+
+    .p-card {
+        width: 110px;
+        height: 120px;
+    }
+
+    .icon {
+        width: 50px;
+        height: 50px;
+        top: -25px;
+    }
+
+    .icon i {
+        font-size: 40px;
+    }
+
+    .round {
+        width: 85px;
+        height: 85px;
+        padding: 6px;
+    }
+
+    .round h2 {
+        font-size: 20px;
+    }
+
+    .round p {
+        font-size: 12px;
+    }
+
+    .round h3 {
+        font-size: 20px;
+    }
+
+    .rst-btn {
+        padding: 4px 8px;
+        font-size: 12px;
+    }
+
+    .board {
+        width: 300px;
+        height: 300px;
+    }
+
+    .box {
+        width: 310px;
+        height: 310px;
+    }
+
+    .board-box i {
+        font-size: 70px;
+    }
+
+    .board-box2 i {
+        font-size: 44px;
+    }
+
+    .message p {
+        font-size: 14px;
+    }
+
+    .score-box {
+        padding-top: 5px;
+    }
+}
+
+@media(max-width: 580px) {
+    .out-box {
+        width: 480px;
+        padding: 20px;
+    }
+
+    .box {
+        width: 390px;
+        height: 390px;
+    }
+
+    .board {
+        width: 378px;
+        height: 378px;
+        padding: 16px;
+    }
+
+    .board-box i {
+        font-size: 75px;
+    }
+
+    .board-box2 i {
+        font-size: 47px;
+    }
+    .start_screen {
+        height: 630px;
+        width: 480px;
+    }
+}
+
+@media(max-width: 500px) {
+    .p-card {
+        width: 110px;
+        height: 120px;
+    }
+
+    .icon {
+        width: 50px;
+        height: 50px;
+        top: -25px;
+    }
+
+    .icon i {
+        font-size: 40px;
+    }
+
+    .Player-name h3 {
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    .score h2 {
+        font-size: 26px;
+    }
+
+    .score {
+        width: 62px;
+    }
+
+    .out-box {
+        width: 450px;
+        padding: 20px;
+    }
+
+    .box {
+        width: 360px;
+        height: 360px;
+    }
+
+    .board {
+        width: 348px;
+        height: 348px;
+    }
+
+    .board-box i {
+        font-size: 70px;
+    }
+
+    .board-box2 i {
+        font-size: 44px;
+    }
+
+    .message p {
+        font-size: 16px;
+    }
+    .start_screen {
+        width: 450px;
+    }
+    .name-input {
+        padding: 0px 10px;
+    }
+}
+
+@media(max-width:470px) {
+    .p-card {
+        width: 105px;
+        height: 114px;
+    }
+
+    .round {
+        width: 80px;
+        height: 80px;
+        padding: 4px;
+    }
+
+    .round h2 {
+        font-size: 16px;
+    }
+
+    .round p {
+        font-size: 10px;
+    }
+
+    .round h3 {
+        font-size: 16px;
+    }
+
+    .rst-btn {
+        font-size: 10px;
+    }
+
+    .out-box {
+        width: 420px;
+        padding: 14px;
+    }
+
+    .score-box {
+        justify-content: center;
+        padding-top: 20px;
+        gap: 40px;
+    }
+    .start_screen {
+        height: 620px;
+        width: 400px;
+    }
+    .start_screen h1 {
+        font-size: 42px;
+    }
+    .start-img img {
+        width: 160px;
+        height: 160px;
+    }
+    .name-input h2 {
+        font-size: 15px;
+    }
+    .credit {
+        width: 220px;
+        padding: 2px 8px;
+    }
+
+    .credit p {
+        font-size: 12px;
+    }
+
+    .credit span {
+        font-size: 8px;
+    }
+    .choice-opt {
+        padding: 5px 20px;
+        font-size: 20px;
+    }
+    .input-box {
+        flex-direction: column;
+        gap: 26px;
+    }
+    .input-box input {
+        width: 160px;
+        font-size: 14px;
+    }
+    .input-box input::placeholder {
+        font-size: 14px;
+    }
+}
+
+@media(max-width:430px) {
+    .box {
+        width: 360px;
+        height: 360px;
+    }
+
+    .board {
+        width: 348px;
+        height: 348px;
+    }
+
+    .board-box i {
+        font-size: 60px;
+    }
+
+    .board-box2 i {
+        font-size: 38px;
+    }
+
+    .message p {
+        font-size: 14px;
+    }
+
+    .round {
+        width: 70px;
+        height: 70px;
+        padding: 4px;
+    }
+
+    .round h2 {
+        font-size: 14px;
+    }
+
+    .round p {
+        font-size: 10px;
+    }
+
+    .round h3 {
+        font-size: 14px;
+    }
+
+    .Player-name h3 {
+        font-size: 16px;
+        font-weight: 400;
+    }
+
+    .p-card {
+        width: 110px;
+        height: 130px;
+    }
+
+    .icon {
+        width: 65px;
+        height: 65px;
+        top: -32px;
+    }
+
+    .icon i {
+        font-size: 40px;
+    }
+
+    .score h2 {
+        font-size: 22px;
+    }
+
+    .score {
+        width: 54px;
+    }
+
+    .score-box {
+        padding-top: 40px;
+        gap: 30px;
+    }
+
+    .out-box {
+        width: 380px;
+        padding: 12px;
+    }
+    .name-input h2 {
+        font-size: 14px;
+    }
+    .start_screen {
+        width: 370px;
+    }
+}
+
+@media(max-width:390px) {
+    .box {
+        width: 320px;
+        height: 320px;
+    }
+
+    .board {
+        width: 308px;
+        height: 308px;
+    }
+
+    .board-box i {
+        font-size: 55px;
+    }
+
+    .board-box2 i {
+        font-size: 35px;
+    }
+
+    .message p {
+        font-size: 12px;
+    }
+
+    .round {
+        width: 65px;
+        height: 65px;
+        padding: 2px;
+    }
+
+    .round h2 {
+        font-size: 12px;
+    }
+
+    .round p {
+        font-size: 10px;
+    }
+
+    .round h3 {
+        font-size: 12px;
+    }
+
+    .Player-name h3 {
+        font-size: 12px;
+        font-weight: 400;
+    }
+
+    .p-card {
+        width: 90px;
+        height: 105px;
+    }
+
+    .icon {
+        width: 40px;
+        height: 40px;
+        top: -20px;
+    }
+
+    .icon i {
+        font-size: 30px;
+    }
+
+    .score h2 {
+        font-size: 20px;
+    }
+
+    .score {
+        width: 52px;
+    }
+
+    .score-box {
+        padding-top: 20px;
+        gap: 30px;
+    }
+
+    .out-box {
+        width: 350px;
+        padding: 12px;
+    }
+    .start_screen h1 {
+        font-size: 40px;
+    }
+    .start-img {
+        margin-top: -38px;
+    }
+    .start-img img {
+        width: 140px;
+        height: 140px;
+    }
+    .name-input h2 {
+        font-size: 12px;
+    }
+    .start_screen {
+        width: 345px;
+    }
+    .choice-opt {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 360px) {
+    .box {
+        width: 300px;
+        height: 300px;
+    }
+
+    .board {
+        width: 290px;
+        height: 290px;
+    }
+
+    .board-box i {
+        font-size: 50px;
+    }
+
+    .board-box2 i {
+        font-size: 31px;
+    }
+
+    .out-box {
+        width: 320px;
+        padding: 12px;
+    }
+    .start_screen {
+        width: 315px;
+    }
+    .start_screen h1 {
+        font-size: 36px;
+    }
+    .start-img img {
+        width: 120px;
+        height: 120px;
+    }
+    .choice-opt {
+        font-size: 16px;
+    }
+}
