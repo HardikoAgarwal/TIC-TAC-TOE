@@ -39,6 +39,7 @@ function board() {
 
     if (Grids == 3) {
         board_box.classList.add("board3");
+        board_box.classList.remove("board4");
         for (let i = 1; i <= 9; i++) {
             board_box.innerHTML +=
                 '<div class="board-box" id="b3' +
@@ -49,6 +50,7 @@ function board() {
         }
     } else if (Grids == 4) {
         board_box.classList.add("board4");
+        board_box.classList.remove("board3");
         for (let i = 1; i <= 16; i++) {
             board_box.innerHTML +=
                 '<div class="board-box board-box2" id="b4' +
@@ -257,4 +259,6 @@ function goBack(){
     initialValue();
     document.getElementById("start_box").style.top = "0";
     document.getElementById("game_box").style.top = "100vh";
+    P1_Name = "";
+    P2_Name = "";
 }
