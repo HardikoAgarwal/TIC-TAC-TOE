@@ -259,6 +259,6 @@ function goBack(){
     initialValue();
     document.getElementById("start_box").style.top = "0";
     document.getElementById("game_box").style.top = "100vh";
-    P1_Name = "";
-    P2_Name = "";
+    document.getElementById("P1_Name").value = '';
+    document.getElementById("P2_Name").value = '';
 }
