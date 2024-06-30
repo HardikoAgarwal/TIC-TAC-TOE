@@ -102,10 +102,10 @@ function start() {
         let temp = P1_Name;
         P1_Name = P2_Name;
         P2_Name = temp;
-        updateName();
         temp = Score_1;
         Score_1 = Score_2;
         Score_2 = temp;
+        updateName();
         updateScore();
     }
     Start = "True";
