@@ -23,8 +23,8 @@ let p = roundClickDiv.querySelector("p");
 
 function mode(choice) {
     Grids = choice;
-    document.getElementById("start_box").style.top = "-100vh";
-    document.getElementById("game_box").style.top = "0";
+    document.getElementById("start_box").style.transform = "translateY(-100vh)";
+    document.getElementById("game_box").style.transform = "translateY(0)";
     board();
     P1_Name = document.getElementById("P1_Name").value || "Player 1";
     P2_Name = document.getElementById("P2_Name").value || "Player 2";
@@ -257,8 +257,8 @@ function playAgain() {
 
 function goBack(){
     initialValue();
-    document.getElementById("start_box").style.top = "0";
-    document.getElementById("game_box").style.top = "100vh";
+    document.getElementById("start_box").style.transform = "translateY(0)";
+    document.getElementById("game_box").style.transform = "translateY(100vh)";
     document.getElementById("P1_Name").value = '';
     document.getElementById("P2_Name").value = '';
 }
