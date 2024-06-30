@@ -40,8 +40,8 @@ body{
     align-items: center;
     justify-content: center;
     position: absolute;
-    top: 0;    
-    transition: top ease 0.8s;
+    transform: translateY(0);
+    transition: transform ease 0.8s;
 }
 .start_screen{
     height: 650px;
@@ -175,8 +175,8 @@ body{
     align-items: center;
     justify-content: center;
     position: absolute;
-    top: 100vh;
-    transition: top ease 0.8s;
+    transform: translateY(100vh);
+    transition: transform ease 0.8s;
 }
 .out-box{
     width: 550px;
