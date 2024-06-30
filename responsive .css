@@ -591,9 +591,6 @@
     .start_screen {
         width: 370px;
     }
-    .game_box, .start_box{
-        transition: none;
-    }
 }
 
 @media(max-width:390px) {
