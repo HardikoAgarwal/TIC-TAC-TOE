@@ -15,13 +15,12 @@ body{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
     overflow: hidden;
     /* background-color: antiquewhite; */
 }
 .big-box{
     width: 100%;
-    height: 100%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -170,7 +169,7 @@ body{
 }
 .game_box{
     width: 100%;
-    height: 100%;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
