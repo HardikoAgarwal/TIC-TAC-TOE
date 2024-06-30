@@ -592,7 +592,7 @@
         width: 370px;
     }
     .game_box, .start_box{
-        transition: top 0.5s;
+        transition: none;
     }
 }
 
